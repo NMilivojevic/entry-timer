@@ -11,8 +11,11 @@
 <body>
     <div id="controlsPanel">
         <h1>Exercise Timer</h1>
-        <select id="workoutSelector">
-        </select>
+        <div class="workout-selector-container">
+            <select id="workoutSelector">
+            </select>
+            <button id="deleteWorkout" style="display: none;">Delete</button>
+        </div>
         <div id="exercise">Ready</div>
         <div id="timer">00:00</div>
         <div id="nextUp"></div>
@@ -20,6 +23,32 @@
         <div class="button-row">
             <button id="start">Start Workout</button>
             <button id="pause" disabled>Pause</button>
+            <button id="createWorkout">Create Workout</button>
+        </div>
+    </div>
+    
+    <div id="createWorkoutPanel" style="display: none;">
+        <h2>Create Custom Workout</h2>
+        <div class="input-group">
+            <label for="workoutName">Workout Name:</label>
+            <input type="text" id="workoutName" placeholder="Enter workout name">
+        </div>
+        <div class="exercise-builder">
+            <h3>Add Exercises</h3>
+            <div class="input-group">
+                <label for="exerciseName">Exercise Name:</label>
+                <input type="text" id="exerciseName" placeholder="Enter exercise name">
+            </div>
+            <div class="input-group">
+                <label for="exerciseDuration">Duration (seconds):</label>
+                <input type="number" id="exerciseDuration" placeholder="30" min="1">
+            </div>
+            <button id="addExercise">Add Exercise</button>
+        </div>
+        <div id="customExerciseList"></div>
+        <div class="button-row">
+            <button id="saveWorkout">Save Workout</button>
+            <button id="cancelCreate">Cancel</button>
         </div>
     </div>
     <ol id="exerciseList"></ol>
