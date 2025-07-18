@@ -193,6 +193,16 @@ button:disabled {
     color: #60a5fa;
 }
 
+.button-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.button-row button {
+    flex: 1;
+}
+
 @media (min-width: 768px) {
     body {
         display: flex;
@@ -240,21 +250,48 @@ button:disabled {
 
 @media (max-width: 480px) {
     #controlsPanel {
-        padding: 1rem;
+        padding: 0.75rem;
         max-width: 95%;
         position: fixed;
         top: 0px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;
+        gap: 0.75rem;
+    }
+
+    #controlsPanel h1 {
+        font-size: 1.25rem;
+        margin: 0;
+    }
+
+    #exercise {
+        font-size: 1rem;
+        padding: 0.5rem;
     }
 
     #timer {
         font-size: 2rem;
+        padding: 0.5rem;
+    }
+
+    #nextUp {
+        font-size: 0.9rem;
+        padding: 0.25rem;
+    }
+
+    #workoutRemaining {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    #workoutSelector {
+        padding: 0.75rem;
+        font-size: 0.9rem;
     }
 
     #exerciseList {
-        margin-top: 600px;
+        margin-top: 420px;
     }
 
     #exerciseList li {
@@ -263,7 +300,12 @@ button:disabled {
     }
 
     button {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .button-row {
+        flex-direction: row;
+        gap: 0.75rem;
     }
 }
