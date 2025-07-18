@@ -126,6 +126,10 @@ button:disabled {
     transform: none !important;
 }
 
+#nextUp {
+    text-align: center;
+}
+
 #exerciseList {
     list-style: none;
     padding: 2rem;
@@ -233,58 +237,6 @@ button:disabled {
         background: rgba(148, 163, 184, 0.5);
     }
 }
-/* 
-@media (max-width: 767px) {
-    body {
-        display: block;
-        overflow-y: hidden;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        height: 100vh;
-    }
-
-    body::-webkit-scrollbar {
-        display: none;
-    }
-
-    #controlsPanel {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0;
-        padding: 1.5rem;
-        border-radius: 0 0 20px 20px;
-        z-index: 10;
-        max-height: 60vh;
-        overflow-y: auto;
-    }
-
-    #controlsPanel h1 {
-        font-size: 1.75rem;
-    }
-
-    #timer {
-        font-size: 2.5rem;
-    }
-
-    #exercise {
-        font-size: 1.25rem;
-    }
-
-    #exerciseList {
-        padding: 1rem;
-        padding-top: 65vh;
-        height: 100vh;
-        overflow-y: auto;
-        box-sizing: border-box;
-    }
-
-    #exerciseList li {
-        padding: 0.75rem 1rem;
-        margin-left: 20px;
-    }
-} */
 
 @media (max-width: 480px) {
     #controlsPanel {

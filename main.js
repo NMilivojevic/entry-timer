@@ -5,6 +5,7 @@ const startBtn = document.getElementById("start");
 const pauseBtn = document.getElementById("pause");
 const workoutRemainingEl = document.getElementById("workoutRemaining");
 const workoutSelector = document.getElementById("workoutSelector");
+const nextUpEl = document.getElementById("nextUp");
 
 let current = 0;
 let countdown;
@@ -43,6 +44,16 @@ function updateWorkoutRemaining() {
     workoutRemainingEl.innerText = `Total Time Left: ${String(
         Math.floor(remaining / 60)
     ).padStart(2, "0")}:${String(remaining % 60).padStart(2, "0")}`;
+}
+
+function updateNextUp() {
+    const nextIndex = current + 1;
+    if (nextIndex < workout.length) {
+        const [nextName, nextDuration] = workout[nextIndex];
+        nextUpEl.innerText = `Next up: ${nextName} (${nextDuration}s)`;
+    } else {
+        nextUpEl.innerText = "";
+    }
 }
 
 function scrollToActive() {
@@ -85,6 +96,7 @@ function startExercise() {
     const activeItem = document.getElementById(`item-${current}`);
     if (activeItem) activeItem.classList.add("active");
     scrollToActive();
+    updateNextUp();
 
     countdown = setInterval(() => {
         if (!isPaused) {
@@ -101,7 +113,14 @@ function startExercise() {
             ).padStart(2, "0")}:${String(secondsLeft % 60).padStart(2, "0")}`;
             updateWorkoutRemaining();
 
-            if (secondsLeft === 10) speak("10 seconds remaining");
+            if (secondsLeft === 10) {
+                speak("10 seconds remaining");
+                const nextIndex = current + 1;
+                if (nextIndex < workout.length) {
+                    const [nextName] = workout[nextIndex];
+                    setTimeout(() => speak(`Next up: ${nextName}`), 1600);
+                }
+            }
             if ([3, 2, 1].includes(secondsLeft)) speak(secondsLeft.toString());
 
             secondsLeft--;
@@ -139,6 +158,7 @@ function loadWorkout(name) {
         exerciseEl.innerText = "Ready";
         timerEl.innerText = "00:00";
         renderList();
+        updateNextUp();
     }
 }
 

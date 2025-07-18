@@ -3,7 +3,7 @@ const workouts = {
     "Drugi-Trening": [],
     "Bolesna-Nevena": [
         ["Prepare to start", 10],
-        ["Free warm up", 12], //180
+        ["Free warm up", 180],
         ["Standing waist twist", 30],
         ["Standing waist twist to halos", 30],
         ["Rest", 10],
