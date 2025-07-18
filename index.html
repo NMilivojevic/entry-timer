@@ -11,22 +11,20 @@
 <body>
     <div id="controlsPanel">
         <h1>Exercise Timer</h1>
-        <div class="workout-selector-container">
-            <select id="workoutSelector">
-            </select>
-            <button id="deleteWorkout" style="display: none;">Delete</button>
-        </div>
+        <select id="workoutSelector">
+        </select>
         <div id="exercise">Ready</div>
         <div id="timer">00:00</div>
         <div id="nextUp"></div>
         <div id="workoutRemaining">Total Time Left: 00:00</div>
         <div class="button-row">
-            <button id="start">Start Workout</button>
+            <button id="start">Start</button>
             <button id="pause" disabled>Pause</button>
-            <button id="createWorkout">Create Workout</button>
+            <button id="createWorkout">Create</button>
+            <button id="deleteWorkout" style="display: none;">Delete</button>
         </div>
     </div>
-    
+
     <div id="createWorkoutPanel" style="display: none;">
         <h2>Create Custom Workout</h2>
         <div class="input-group">

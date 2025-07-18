@@ -40,14 +40,7 @@ body {
     background-clip: text;
 }
 
-.workout-selector-container {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-}
-
 #workoutSelector {
-    flex: 1;
     padding: 1rem;
     border: 2px solid #475569;
     border-radius: 12px;
@@ -56,7 +49,7 @@ body {
     color: #e2e8f0;
     transition: all 0.3s ease;
     outline: none;
-    max-width: 300px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -217,12 +210,10 @@ button:disabled {
 
 .button-row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
-}
-
-.button-row button {
-    flex: 1;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 @media (min-width: 768px) {
