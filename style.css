@@ -1,0 +1,317 @@
+/* style.css */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: #e2e8f0;
+}
+
+#controlsPanel {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    position: relative;
+}
+
+#controlsPanel h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#workoutSelector {
+    padding: 1rem;
+    border: 2px solid #475569;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #334155;
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#workoutSelector:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+#exercise {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: #e2e8f0;
+    padding: 1rem;
+    background: #1e293b;
+}
+
+#timer {
+    font-size: 3.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: #60a5fa;
+    font-variant-numeric: tabular-nums;
+    padding: 1rem;
+    background: #1e293b;
+    border-radius: 12px;
+}
+
+#workoutRemaining {
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    padding: 0.75rem;
+    background: #334155;
+    border-radius: 8px;
+}
+
+button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#start {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+#start:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+#pause {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+#pause:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+#exerciseList {
+    list-style: none;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 600px;
+    counter-reset: exercise-counter;
+}
+
+#exerciseList li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    counter-increment: exercise-counter;
+    position: relative;
+    transition: all 0.3s ease;
+    color: #e2e8f0;
+}
+
+#exerciseList li::before {
+    content: counter(exercise-counter);
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #60a5fa;
+    color: #1e293b;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#exerciseList li.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+    background: rgba(30, 41, 59, 0.4);
+}
+
+#exerciseList li.completed::before {
+    background: #64748b;
+    color: #e2e8f0;
+}
+
+#exerciseList li.active {
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    color: white;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+}
+
+#exerciseList li.active::before {
+    background: white;
+    color: #60a5fa;
+}
+
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #controlsPanel {
+        width: 400px;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+
+    #exerciseList {
+        margin-left: 400px;
+        height: 100vh;
+        overflow-y: auto;
+        padding-top: 2rem;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+    }
+
+    #exerciseList::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #exerciseList::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    #exerciseList::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.3);
+        border-radius: 3px;
+    }
+
+    #exerciseList::-webkit-scrollbar-thumb:hover {
+        background: rgba(148, 163, 184, 0.5);
+    }
+}
+/* 
+@media (max-width: 767px) {
+    body {
+        display: block;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        height: 100vh;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    #controlsPanel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 1.5rem;
+        border-radius: 0 0 20px 20px;
+        z-index: 10;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    #controlsPanel h1 {
+        font-size: 1.75rem;
+    }
+
+    #timer {
+        font-size: 2.5rem;
+    }
+
+    #exercise {
+        font-size: 1.25rem;
+    }
+
+    #exerciseList {
+        padding: 1rem;
+        padding-top: 65vh;
+        height: 100vh;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    #exerciseList li {
+        padding: 0.75rem 1rem;
+        margin-left: 20px;
+    }
+} */
+
+@media (max-width: 480px) {
+    #controlsPanel {
+        padding: 1rem;
+        max-width: 95%;
+        position: fixed;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    #timer {
+        font-size: 2rem;
+    }
+
+    #exerciseList {
+        margin-top: 600px;
+    }
+
+    #exerciseList li {
+        font-size: 1rem;
+        margin-left: 15px;
+    }
+
+    button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

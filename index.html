@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise Timer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="controlsPanel">
+        <h1>Exercise Timer</h1>
+        <select id="workoutSelector">
+        </select>
+        <div id="exercise">Ready</div>
+        <div id="timer">00:00</div>
+        <div id="workoutRemaining">Total Time Left: 00:00</div>
+        <button id="start">Start Workout</button>
+        <button id="pause" disabled>Pause</button>
+    </div>
+    <ol id="exerciseList"></ol>
+
+    <script src="workouts.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
