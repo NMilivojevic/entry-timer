@@ -118,7 +118,7 @@ function startExercise() {
                 const nextIndex = current + 1;
                 if (nextIndex < workout.length) {
                     const [nextName] = workout[nextIndex];
-                    setTimeout(() => speak(`Next up: ${nextName}`), 1600);
+                    setTimeout(() => speak(`Next up: ${nextName}`), 2000);
                 }
             }
             if ([3, 2, 1].includes(secondsLeft)) speak(secondsLeft.toString());
