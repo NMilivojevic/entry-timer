@@ -216,51 +216,6 @@ button:disabled {
     justify-content: space-between;
 }
 
-@media (min-width: 768px) {
-    body {
-        display: flex;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    #controlsPanel {
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        border-radius: 0;
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: 2;
-    }
-
-    #exerciseList {
-        margin-left: 500px;
-        height: 100vh;
-        overflow-y: auto;
-        padding-top: 2rem;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
-    }
-
-    #exerciseList::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    #exerciseList::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    #exerciseList::-webkit-scrollbar-thumb {
-        background: rgba(148, 163, 184, 0.3);
-        border-radius: 3px;
-    }
-
-    #exerciseList::-webkit-scrollbar-thumb:hover {
-        background: rgba(148, 163, 184, 0.5);
-    }
-}
-
 /* Custom workout creation panel */
 #createWorkoutPanel {
     width: 100%;
@@ -449,6 +404,51 @@ button:disabled {
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
 }
 
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #controlsPanel {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+
+    #exerciseList {
+        margin-left: 500px;
+        height: 100vh;
+        overflow-y: auto;
+        padding-top: 2rem;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+    }
+
+    #exerciseList::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #exerciseList::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    #exerciseList::-webkit-scrollbar-thumb {
+        background: rgba(148, 163, 184, 0.3);
+        border-radius: 3px;
+    }
+
+    #exerciseList::-webkit-scrollbar-thumb:hover {
+        background: rgba(148, 163, 184, 0.5);
+    }
+}
+
 @media (max-width: 480px) {
     #controlsPanel {
         padding: 0.75rem;
@@ -494,7 +494,6 @@ button:disabled {
     #deleteWorkout {
         padding: 0.6rem 1.2rem;
         font-size: 0.8rem;
-        width: 100%;
     }
 
     #exerciseList {
