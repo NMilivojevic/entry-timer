@@ -495,11 +495,6 @@ button:disabled {
         padding: 0.5rem;
     }
 
-    .workout-selector-container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
     #workoutSelector {
         padding: 0.75rem;
         font-size: 0.9rem;
