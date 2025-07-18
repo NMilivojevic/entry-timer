@@ -1,5 +1,5 @@
 const workouts = {
-    "Prvi-Trening": [
+    "Ghibli-Gains": [
         ["Prepare to start", 10],
         ["Free warm up", 180],
         ["Standing waist twist", 30],
@@ -50,7 +50,7 @@ const workouts = {
         ["Rest", 10],
         ["Neck flexion", 90],
     ],
-    "Bolesna-Nevena": [
+    "Chunin-Trials": [
         ["Prepare to start", 10],
         ["Free warm up", 180],
         ["Standing waist twist", 30],
