@@ -493,7 +493,7 @@ button:disabled {
 
     #workoutSelector {
         padding: 0.75rem;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     #deleteWorkout {
@@ -547,6 +547,6 @@ button:disabled {
 
     .input-group input {
         padding: 0.75rem;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }
