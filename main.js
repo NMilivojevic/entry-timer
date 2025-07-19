@@ -136,8 +136,23 @@ function updateNextUp() {
 function scrollToActive() {
     const active = document.querySelector("li.active");
     if (active) {
-        const block = window.innerWidth <= 480 ? "end" : "center";
+        const isMobile = window.innerWidth <= 480;
+        const block = isMobile ? "end" : "center";
+
         active.scrollIntoView({ behavior: "smooth", block });
+
+        if (isMobile) {
+            // Slight delay to ensure scrollIntoView happens first
+            setTimeout(() => {
+                const scrollOffset = 70; // pixels from the bottom
+                const rect = active.getBoundingClientRect();
+                const offset = rect.bottom - window.innerHeight + scrollOffset;
+
+                if (offset > 0) {
+                    window.scrollBy({ top: offset, behavior: "smooth" });
+                }
+            }, 300);
+        }
     }
 }
 
@@ -198,7 +213,8 @@ function startExercise() {
                     setTimeout(() => speak(`Next up: ${nextName}`), 2000);
                 }
             }
-            if ([3, 2, 1].includes(secondsLeft)) speak(secondsLeft.toString());
+            if ([5, 4, 3, 2, 1].includes(secondsLeft))
+                speak(secondsLeft.toString());
 
             secondsLeft--;
         }
