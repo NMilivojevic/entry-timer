@@ -213,7 +213,11 @@ button:disabled {
     flex-direction: row;
     gap: 1rem;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+}
+
+.button-row button {
+    flex: 1;
 }
 
 /* Custom workout creation panel */

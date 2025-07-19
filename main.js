@@ -3,6 +3,7 @@ const exerciseEl = document.getElementById("exercise");
 const listEl = document.getElementById("exerciseList");
 const startBtn = document.getElementById("start");
 const pauseBtn = document.getElementById("pause");
+const resetBtn = document.getElementById("reset");
 const workoutRemainingEl = document.getElementById("workoutRemaining");
 const workoutSelector = document.getElementById("workoutSelector");
 const nextUpEl = document.getElementById("nextUp");
@@ -23,7 +24,8 @@ let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function initAudioContext() {
     if (!audioContext && speechEnabled) {
         try {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            audioContext = new (window.AudioContext ||
+                window.webkitAudioContext)();
         } catch (error) {
             console.warn("Audio context creation failed:", error);
         }
@@ -32,20 +34,26 @@ function initAudioContext() {
 
 function playBeep(frequency = 800, duration = 200) {
     if (!audioContext) return;
-    
+
     try {
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
-        
+
         oscillator.connect(gainNode);
         gainNode.connect(audioContext.destination);
-        
-        oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-        oscillator.type = 'sine';
-        
+
+        oscillator.frequency.setValueAtTime(
+            frequency,
+            audioContext.currentTime
+        );
+        oscillator.type = "sine";
+
         gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration / 1000);
-        
+        gainNode.gain.exponentialRampToValueAtTime(
+            0.01,
+            audioContext.currentTime + duration / 1000
+        );
+
         oscillator.start(audioContext.currentTime);
         oscillator.stop(audioContext.currentTime + duration / 1000);
     } catch (error) {
@@ -55,24 +63,24 @@ function playBeep(frequency = 800, duration = 200) {
 
 function speakWithFallback(text) {
     let speechWorked = false;
-    
+
     if ("speechSynthesis" in window && speechEnabled) {
         try {
             const utterance = new SpeechSynthesisUtterance(text);
             speechSynthesis.cancel();
-            
+
             utterance.onstart = () => {
                 speechWorked = true;
             };
-            
+
             utterance.onerror = () => {
                 if (!speechWorked && isIOS) {
                     playBeep(600, 300);
                 }
             };
-            
+
             speechSynthesis.speak(utterance);
-            
+
             if (isIOS) {
                 setTimeout(() => {
                     if (!speechWorked) {
@@ -205,12 +213,36 @@ startBtn.addEventListener("click", () => {
     }
     startBtn.disabled = true;
     pauseBtn.disabled = false;
+    resetBtn.disabled = false;
     startExercise();
 });
 
 pauseBtn.addEventListener("click", () => {
     isPaused = !isPaused;
     pauseBtn.innerText = isPaused ? "Resume" : "Pause";
+});
+
+resetBtn.addEventListener("click", () => {
+    if (countdown) {
+        clearInterval(countdown);
+        countdown = null;
+    }
+    current = 0;
+    isPaused = false;
+    secondsLeft = 0;
+    startBtn.disabled = false;
+    pauseBtn.disabled = true;
+    resetBtn.disabled = true;
+    pauseBtn.innerText = "Pause";
+    exerciseEl.innerText = "Ready";
+    timerEl.innerText = "00:00";
+    nextUpEl.innerText = "";
+
+    document.querySelectorAll("li").forEach((li) => {
+        li.classList.remove("active", "completed");
+    });
+
+    updateWorkoutRemaining();
 });
 
 function loadWorkout(name) {
@@ -234,6 +266,7 @@ function loadWorkout(name) {
         pauseBtn.innerText = "Pause";
         startBtn.disabled = false;
         pauseBtn.disabled = true;
+        resetBtn.disabled = true;
         exerciseEl.innerText = "Ready";
         timerEl.innerText = "00:00";
         renderList();
@@ -283,9 +316,9 @@ function updateDeleteButton() {
     const selectedValue = workoutSelector.value;
 
     if (selectedValue && selectedValue.startsWith("custom:")) {
-        deleteBtn.style.display = "block";
+        deleteBtn.disabled = false;
     } else {
-        deleteBtn.style.display = "none";
+        deleteBtn.disabled = true;
     }
 }
 
