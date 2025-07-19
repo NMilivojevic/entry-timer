@@ -1,21 +1,29 @@
-# Workout Timer Web App
+# Exercise Timer Web App
 
 ## Overview
 
-This is a simple and lightweight workout timer web application built with HTML, CSS, and JavaScript. It allows users to select from multiple predefined workouts and guides them through each exercise with timers, audio prompts, and progress tracking.
+A modern, responsive workout timer web application built with vanilla HTML, CSS, and JavaScript. Features guided workout sessions with audio prompts, visual progress tracking, and the ability to create custom workout routines.
 
 ---
 
 ## Features
 
--   **Multiple Workouts**: Choose from different workouts loaded from an external JavaScript file. Workout options are dynamically populated from the workouts data.
--   **Exercise List**: Displays the full list of exercises with their durations next to them.
--   **Timer & Controls**: Shows the current exercise name, countdown timer, and accurate total workout time remaining.
--   **Audio Prompts**: Uses browser speech synthesis to announce each exercise name and countdown warnings (10 seconds remaining, 3-2-1 seconds). Includes error handling for unsupported browsers.
--   **Pause/Resume**: Pause or resume the timer at any time.
--   **Auto-Scrolling List**: The current exercise is highlighted and always scrolled into view in the middle of the screen, with completed exercises shown as strikethrough.
--   **Responsive UI**: Layout fixes the control panel on the left and the exercise list on the right, ensuring controls are always visible.
--   **Stability Features**: Prevents multiple timers from running simultaneously and properly cleans up intervals to prevent memory leaks.
+### Core Functionality
+-   **Predefined Workouts**: Two built-in anime-themed workout routines ("Ghibli-Gains" and "Chunin-Trials")
+-   **Custom Workout Builder**: Create, edit, and save personalized workout routines with localStorage persistence
+-   **Smart Timer System**: Countdown timer with pause/resume functionality and accurate total workout time tracking
+-   **Audio Guidance**: Speech synthesis for exercise announcements and countdown warnings (10s, 3-2-1s)
+
+### User Experience
+-   **Visual Progress Tracking**: Current exercise highlighted, completed exercises crossed out
+-   **Auto-Scrolling Interface**: Exercise list automatically centers on current activity
+-   **Responsive Design**: Optimized layouts for desktop (side-by-side) and mobile (stacked) views
+-   **Workout Management**: Delete custom workouts with confirmation prompts
+
+### Technical Features
+-   **Memory Management**: Proper interval cleanup to prevent memory leaks
+-   **Error Handling**: Graceful degradation when Speech API is unavailable
+-   **No Dependencies**: Pure vanilla JavaScript with ES6 module support
 
 ---
 
@@ -28,15 +36,21 @@ This is a simple and lightweight workout timer web application built with HTML, 
 
 ---
 
-## How to Use
+## Quick Start
 
-1. Open `index.html` in a modern browser (preferably Chrome or Firefox).
-2. Use the dropdown menu to select a workout. The exercise list and total duration update accordingly.
-3. Click **Start** to begin the workout timer.
-4. The app will announce exercises and countdown warnings aloud.
-5. Use the **Pause** button to pause/resume the timer at any time.
-6. The current exercise is highlighted and centered, with completed exercises crossed out.
-7. The total workout time left is displayed and updated live.
+1. **Open**: Simply open `index.html` in any modern browser (Chrome, Firefox, Safari, Edge)
+2. **Select Workout**: Choose from predefined workouts or create your own using the "Create" button
+3. **Start Timer**: Click "Start" to begin your workout session
+4. **Follow Along**: Listen to audio cues and watch the visual progress indicators
+5. **Control Playback**: Use "Pause" to take breaks or "Resume" to continue
+
+### Creating Custom Workouts
+
+1. Click the **Create** button in the main interface
+2. Enter a workout name and add exercises with their durations
+3. Use **Add Exercise** to build your routine
+4. Click **Save Workout** to store it locally
+5. Your custom workout will appear in the dropdown menu with a "[Custom]" label
 
 ---
 
