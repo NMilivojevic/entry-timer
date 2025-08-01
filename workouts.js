@@ -32,7 +32,7 @@ const workouts = {
         ["Rest", 20],
         ["Sumo squat pulses to side coil lunge pulses", 60],
         ["Rest", 20],
-        ["Squat to bicep curl to press", 60],
+        ["Squat to bicep curl to press to tricep curl", 60],
         ["Rest", 20],
         ["Half shin box get up left", 40],
         ["Half shin box get up right", 40],
