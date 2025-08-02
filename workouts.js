@@ -61,10 +61,10 @@ const workouts = {
     "Forest-Form": [
         ["Prepare to start", 10],
         ["Free warm up", 180],
-        ["Standing bycycle", 30],
+        ["Standing bicycle", 30],
         ["High plank cross tucks", 30],
         ["Rest", 10],
-        ["Squat to standing bycycle", 60],
+        ["Squat to standing bicycle", 60],
         ["Rest", 10],
         ["Squat to reverse lunge left", 40],
         ["Squat to reverse lunge right", 40],
