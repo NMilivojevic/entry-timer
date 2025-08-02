@@ -480,6 +480,12 @@ document.getElementById("saveWorkout").addEventListener("click", () => {
     updateDeleteButton();
 });
 
+document.getElementById("enableNevenaWorkouts").addEventListener("click", () => {
+    localStorage.setItem("load-nevena-workouts", "true");
+    alert("Nevena workouts enabled! Refreshing page...");
+    location.reload();
+});
+
 window.addEventListener("DOMContentLoaded", () => {
     loadCustomWorkouts();
     populateSelector();
