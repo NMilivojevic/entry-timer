@@ -268,7 +268,10 @@ function loadWorkout(name) {
         const customName = name.replace("custom:", "");
         workoutData = customWorkouts[customName];
     } else {
-        workoutData = workouts[name];
+        // Only load built-in workouts if enabled
+        if (shouldLoadBuiltInWorkouts()) {
+            workoutData = workouts[name];
+        }
     }
 
     if (workoutData) {
@@ -301,19 +304,25 @@ function saveCustomWorkouts() {
     localStorage.setItem("customWorkouts", JSON.stringify(customWorkouts));
 }
 
+function shouldLoadBuiltInWorkouts() {
+    return localStorage.getItem("load-nevena-workouts") !== null;
+}
+
 function populateSelector() {
     workoutSelector.innerHTML = "";
 
-    // Add built-in workouts
-    Object.entries(workouts).forEach(([name, exercises]) => {
-        const total = exercises.reduce((sum, [, d]) => sum + d, 0);
-        const option = document.createElement("option");
-        option.value = name;
-        option.textContent = `${name.split("-").join(" ")} (${Math.floor(
-            total / 60
-        )}m ${total % 60}s)`;
-        workoutSelector.appendChild(option);
-    });
+    // Add built-in workouts only if enabled
+    if (shouldLoadBuiltInWorkouts()) {
+        Object.entries(workouts).forEach(([name, exercises]) => {
+            const total = exercises.reduce((sum, [, d]) => sum + d, 0);
+            const option = document.createElement("option");
+            option.value = name;
+            option.textContent = `${name.split("-").join(" ")} (${Math.floor(
+                total / 60
+            )}m ${total % 60}s)`;
+            workoutSelector.appendChild(option);
+        });
+    }
 
     // Add custom workouts
     Object.entries(customWorkouts).forEach(([name, exercises]) => {
