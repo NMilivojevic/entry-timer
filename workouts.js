@@ -116,4 +116,17 @@ const workouts = {
         ["Rest", 10],
         ["Neck flexion", 60],
     ],
+    "Endure-I-Guess": [
+        ["Mountain Climbers", 40],
+        ["Rest", 20],
+        ["Burpees", 40],
+        ["Rest", 20],
+        ["Squat Jumpers", 40],
+        ["Rest", 20],
+        ["Lunge Jumpers", 40],
+        ["Rest", 20],
+        ["High Knees", 40],
+        ["Rest", 20],
+        ["Rest", 60],
+    ],
 };
