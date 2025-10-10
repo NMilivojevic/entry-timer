@@ -149,5 +149,13 @@ const workouts = {
         ["Rest", 20],
         ["Overhead press to windmill left", 40],
         ["Overhead press to windmill right", 40],
+        ["Push ups (standard or knee)", 40],
+        ["Australian rows", 40],
+        ["Rest", 10],
+        ["Glute bridge with press left", 30],
+        ["Glute bridge with press right", 30],
+        ["Rest", 10],
+        ["Dead bug", 60],
+        ["Neck flexion", 60],
     ],
 };
