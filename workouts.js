@@ -42,18 +42,11 @@ const workouts = {
         ["Glute bridge with press left", 30],
         ["Glute bridge with press right", 30],
         ["Rest", 10],
-        ["Dead bug", 60],
         ["Reverse plank knee tucks", 40],
         ["Rest", 10],
         ["Plank reach elbow to T", 50],
         ["Rest", 10],
-        ["Knee Push up", 60],
-        ["Rest", 10],
-        ["Australian rows", 60],
-        ["Rest", 10],
-        ["Z press", 30],
-        ["Lateral raises", 30],
-        ["High plank hold", 30],
+        ["High plank hold to Bear Crawl hold", 30],
         ["Rest", 10],
         ["Neck flexion", 60],
     ],
@@ -121,9 +114,9 @@ const workouts = {
         ["Pike Push Ups", 60],
 
         ["Rest", 20],
-        ["Kettlebell Single Arm Overhead Press Left", 30],
+        ["Z Kettlebell Single Arm Overhead Press Left", 30],
 
-        ["Kettlebell Single Arm Overhead Press Right", 30],
+        ["Z Kettlebell Single Arm Overhead Press Right", 30],
         ["Rest", 20],
 
         ["Wide Push Ups", 60],
@@ -138,9 +131,9 @@ const workouts = {
 
         ["Rest", 20],
 
-        ["Kettlebell Single Arm Overhead Press Left", 30],
+        ["Z Kettlebell Single Arm Overhead Press Left", 30],
 
-        ["Kettlebell Single Arm Overhead Press Right", 30],
+        ["Z Kettlebell Single Arm Overhead Press Right", 30],
 
         ["Rest", 20],
 
@@ -166,11 +159,11 @@ const workouts = {
 
         ["Rear Delt Flyes", 60],
 
-        ["Rest", 20],
+        ["Rest", 10],
 
         ["Rear Delt Flyes", 60],
 
-        ["Rest", 20],
+        ["Rest", 10],
 
         // --- ARMS ---
 
@@ -188,19 +181,19 @@ const workouts = {
 
         ["Kettlebell Overhead Tricep Extension", 30],
 
-        ["Rest", 20],
+        ["Rest", 10],
 
         ["Shrugs", 30],
 
         ["Kettlebell Overhead Tricep Extension", 30],
 
-        ["Rest", 20],
+        ["Rest", 10],
 
         // --- CORE ---
 
         ["High Plank Hold to Bear Crawl Hold", 60],
 
-        ["Rest", 20],
+        ["Rest", 10],
 
         ["Neck Flexion", 60],
     ],
