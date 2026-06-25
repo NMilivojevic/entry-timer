@@ -58,6 +58,151 @@ const workouts = {
         ["Rest", 10],
         ["Neck flexion", 60],
     ],
+    "V-Taper-Home-Final": [
+        ["Prepare to start", 10],
+
+        ["Free warm up", 180],
+
+        // --- BACK WIDTH / PULL-UP PROGRESSION ---
+
+        ["Australian Rows", 60],
+
+        ["Rest", 20],
+
+        ["Australian Rows", 60],
+
+        ["Rest", 20],
+
+        ["Scapular Pull Ups / Dead Hang", 60],
+
+        ["Rest", 20],
+
+        ["Pull Up Negatives", 60],
+
+        ["Rest", 20],
+
+        ["Chin Up Negatives", 60],
+
+        ["Rest", 20],
+
+        ["Pull Up Negatives", 60],
+
+        ["Rest", 20],
+
+        ["Chin Up Negatives", 60],
+
+        ["Rest", 20],
+
+        // --- SINGLE ARM LAT + DELTS ---
+
+        ["Single Arm KB Row Left", 60],
+
+        ["Lateral Raise", 60],
+
+        ["Rest", 20],
+
+        ["Single Arm KB Row Right", 60],
+
+        ["Lateral Raise", 60],
+
+        ["Rest", 20],
+
+        // --- PUSH ---
+
+        ["Knee Push Ups", 60],
+
+        ["Rest", 20],
+
+        ["Wide Push Ups", 60],
+
+        ["Rest", 20],
+
+        ["Knee Diamond Push Ups", 60],
+
+        ["Rest", 20],
+
+        ["Pike Push Ups", 60],
+
+        ["Rest", 20],
+
+        ["Wide Push Ups", 60],
+
+        ["Rest", 20],
+
+        ["Knee Diamond Push Ups", 60],
+
+        ["Rest", 20],
+
+        ["Pike Push Ups", 60],
+
+        ["Rest", 20],
+
+        ["Kettlebell Single Arm Overhead Press Left", 60],
+
+        ["Kettlebell Single Arm Overhead Press Right", 60],
+
+        ["Rest", 20],
+
+        // --- SHOULDER WIDTH SPECIALIZATION ---
+
+        ["Lateral Raises", 60],
+
+        ["Rest", 20],
+
+        ["Lateral Raises", 60],
+
+        ["Rest", 20],
+
+        ["Overhead Press to Lateral Raises", 60],
+
+        ["Rest", 20],
+
+        ["Overhead Press to Lateral Raises", 60],
+
+        ["Rest", 20],
+
+        // --- REAR DELTS ---
+
+        ["Rear Delt Flyes", 60],
+
+        ["Rest", 20],
+
+        ["Rear Delt Flyes", 60],
+
+        ["Rest", 20],
+
+        // --- ARMS ---
+
+        ["Arm Circuit Round 1 - Bicep Curl Hammer Curl Reverse Curl", 60],
+
+        ["Rest", 20],
+
+        ["Arm Circuit Round 2 - Bicep Curl Hammer Curl Reverse Curl", 60],
+
+        ["Rest", 20],
+
+        // --- TRAPS + TRICEPS ---
+
+        ["Shrugs", 60],
+
+        ["Kettlebell Overhead Tricep Extension", 60],
+
+        ["Rest", 20],
+
+        ["Shrugs", 60],
+
+        ["Kettlebell Overhead Tricep Extension", 60],
+
+        ["Rest", 20],
+
+        // --- CORE ---
+
+        ["High Plank Hold", 60],
+
+        ["Rest", 20],
+
+        ["Neck Flexion", 60],
+    ],
     "Forest-Form": [
         ["Prepare to start", 10],
         ["Free warm up", 180],
