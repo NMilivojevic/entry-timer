@@ -124,6 +124,10 @@ const workouts = {
         ["Pike Push Ups", 60],
 
         ["Rest", 20],
+        ["Kettlebell Single Arm Overhead Press Left", 30],
+
+        ["Kettlebell Single Arm Overhead Press Right", 30],
+        ["Rest", 20],
 
         ["Wide Push Ups", 60],
 
@@ -137,27 +141,27 @@ const workouts = {
 
         ["Rest", 20],
 
-        ["Kettlebell Single Arm Overhead Press Left", 60],
+        ["Kettlebell Single Arm Overhead Press Left", 30],
 
-        ["Kettlebell Single Arm Overhead Press Right", 60],
+        ["Kettlebell Single Arm Overhead Press Right", 30],
 
         ["Rest", 20],
 
         // --- SHOULDER WIDTH SPECIALIZATION ---
 
-        ["Lateral Raises", 60],
-
-        ["Rest", 20],
-
-        ["Lateral Raises", 60],
-
-        ["Rest", 20],
-
         ["Overhead Press to Lateral Raises", 60],
 
         ["Rest", 20],
 
         ["Overhead Press to Lateral Raises", 60],
+
+        ["Rest", 20],
+
+        ["Lateral Raises", 60],
+
+        ["Rest", 20],
+
+        ["Lateral Raises", 60],
 
         ["Rest", 20],
 
@@ -183,21 +187,21 @@ const workouts = {
 
         // --- TRAPS + TRICEPS ---
 
-        ["Shrugs", 60],
+        ["Shrugs", 30],
 
-        ["Kettlebell Overhead Tricep Extension", 60],
+        ["Kettlebell Overhead Tricep Extension", 30],
 
         ["Rest", 20],
 
-        ["Shrugs", 60],
+        ["Shrugs", 30],
 
-        ["Kettlebell Overhead Tricep Extension", 60],
+        ["Kettlebell Overhead Tricep Extension", 30],
 
         ["Rest", 20],
 
         // --- CORE ---
 
-        ["High Plank Hold", 60],
+        ["High Plank Hold to Bear Crawl Hold", 60],
 
         ["Rest", 20],
 
