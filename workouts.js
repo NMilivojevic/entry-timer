@@ -61,8 +61,6 @@ const workouts = {
     "V-Taper-Home-Final": [
         ["Prepare to start", 10],
 
-        ["Free warm up", 180],
-
         // --- BACK WIDTH / PULL-UP PROGRESSION ---
 
         ["Australian Rows", 60],
