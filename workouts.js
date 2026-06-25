@@ -3,7 +3,6 @@ const workouts = {
         ["Prepare to start", 10],
         ["Free warm up", 180],
         ["Standing waist twist", 30],
-        ["Standing waist twist to halos, bicep curl, tricep curl", 30],
         ["Rest", 10],
         ["Discobolus swing to uppercut left", 30],
         ["Discobolus swing uppercut right", 30],
