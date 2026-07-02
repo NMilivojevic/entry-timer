@@ -4,33 +4,158 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0d10" />
+    <meta name="description" content="Guided workout interval timer with audio cues and custom routines." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Ex Timer" />
     <title>Exercise Timer</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='55' r='36' fill='none' stroke='%23d7ff3f' stroke-width='9'/%3E%3Cline x1='50' y1='55' x2='50' y2='32' stroke='%23d7ff3f' stroke-width='9' stroke-linecap='round'/%3E%3Cline x1='37' y1='10' x2='63' y2='10' stroke='%23d7ff3f' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="icon.svg" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <div id="controlsPanel">
-        <h1>Exercise Timer</h1>
-        <select id="workoutSelector">
-        </select>
-        <div id="exercise">Ready</div>
-        <div id="timer">00:00</div>
-        <div id="nextUp"></div>
+        <div class="panel-title-row">
+            <h1>Exercise Timer</h1>
+        </div>
+
+        <div class="voice-settings-row">
+            <button id="muteToggle" class="icon-action-btn" aria-label="Mute voice announcements"
+                title="Mute voice announcements"></button>
+            <select id="voiceSelector" class="voice-selector" aria-label="Choose voice"></select>
+        </div>
+
+        <button id="workoutPickerTrigger" class="workout-picker-trigger" aria-haspopup="listbox"
+            aria-expanded="false">
+            <span id="workoutPickerLabel">Select a workout</span>
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd" />
+            </svg>
+        </button>
+        <select id="workoutSelector" class="visually-hidden" tabindex="-1" aria-hidden="true"></select>
+
+        <div class="workout-actions-row">
+            <button id="createWorkout" class="btn-ghost">New</button>
+            <button id="editWorkout" class="btn-ghost" disabled>Edit</button>
+            <button id="duplicateWorkout" class="btn-ghost" disabled>Duplicate</button>
+            <button id="deleteWorkout" class="btn-ghost btn-ghost-danger" disabled>Delete</button>
+        </div>
+        <div class="backup-actions-row">
+            <button id="exportWorkouts" class="link-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Export workouts
+            </button>
+            <button id="importWorkouts" class="link-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Import workouts
+            </button>
+            <button id="importHelpBtn" class="link-btn" type="button" aria-expanded="false">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                Format?
+            </button>
+            <input type="file" id="importWorkoutsInput" accept="application/json" hidden />
+        </div>
+        <div id="importHelpPanel" class="import-help-panel" hidden>
+            <p>Import expects a <strong>.json</strong> file: an object whose keys are workout names and whose values
+                are lists of <code>[name, seconds]</code> exercise pairs — the same format "Export workouts"
+                produces.</p>
+            <pre><code>{
+  "My Workout": [
+    ["Push Ups", 30],
+    ["Rest", 15],
+    ["Squats", 45]
+  ]
+}</code></pre>
+        </div>
+
+        <div class="timer-stage">
+            <div class="timer-ring-row">
+                <button id="backStep" class="step-btn" disabled aria-label="Previous exercise"
+                    title="Previous exercise">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                        <line x1="5" y1="19" x2="5" y2="5"></line>
+                    </svg>
+                </button>
+
+                <div class="timer-ring-wrap">
+                    <svg class="timer-ring" viewBox="0 0 220 220">
+                        <circle class="ring-track" cx="110" cy="110" r="100"></circle>
+                        <circle id="ringProgress" class="ring-progress" cx="110" cy="110" r="100"></circle>
+                    </svg>
+                    <div class="timer-center">
+                        <div id="exercise" aria-live="polite">Ready</div>
+                        <div id="timer">00:00</div>
+                    </div>
+                </div>
+
+                <button id="skipStep" class="step-btn" disabled aria-label="Skip exercise" title="Skip exercise">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                        <line x1="19" y1="5" x2="19" y2="19"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="nextUp" aria-live="polite"></div>
+        </div>
+
+        <div class="workout-progress-track">
+            <div id="workoutProgressFill" class="workout-progress-fill"></div>
+        </div>
         <div id="workoutRemaining">Total Time Left: 00:00</div>
-        <div class="button-row">
+
+        <div class="button-row primary-actions">
             <button id="start">Start</button>
             <button id="pause" disabled>Pause</button>
             <button id="reset" disabled>Reset</button>
-            <button id="createWorkout">Create</button>
-            <button id="deleteWorkout" disabled>Delete</button>
         </div>
         <div class="button-row" style="display: none;">
             <button id="enableNevenaWorkouts">Enable Nevena Workouts</button>
         </div>
     </div>
 
+    <div id="workoutPickerSheet" class="workout-picker-sheet" hidden>
+        <div id="workoutPickerBackdrop" class="workout-picker-sheet-backdrop"></div>
+        <div class="workout-picker-sheet-panel" role="listbox" aria-label="Choose a workout">
+            <div class="workout-picker-sheet-header">
+                <span>Choose a Workout</span>
+                <button id="closeWorkoutPicker" class="icon-action-btn" aria-label="Close">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="workoutPickerList"></div>
+        </div>
+    </div>
+
     <div id="createWorkoutPanel" style="display: none;">
-        <h2>Create Custom Workout</h2>
+        <h2 id="createWorkoutPanelTitle">Create Custom Workout</h2>
         <div class="input-group">
             <label for="workoutName">Workout Name:</label>
             <input type="text" id="workoutName" placeholder="Enter workout name">
